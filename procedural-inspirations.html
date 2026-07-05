@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedural Algorithms | Onur Çulhaoğlu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="terminal-theme">
+    <header class="page-header">
+        <div class="container">
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </header>
+    <main class="container">
+        <section class="gallery-section">
+            <h2 class="section-title">load inspirations/algorithms</h2>
+            
+            <div class="modal-section">
+                <h3>RNG (Random Number Generation)</h3>
+                <p class="inspiration-desc">
+                    The heart of unpredictability. I use RNG for everything from calculating the value of items in a treasure chest (<code>lootValue = base * rng(0.8, 1.2)</code>) to determining critical hit chances (<code>isCritical = rng(0, 100) < critChance</code>). It's the digital equivalent of a dice roll, bringing life and variance to static systems.
+                </p>
+                <div class="interactive-demo">
+                    <button id="roll-d20" class="button-link">Roll d20</button>
+                    <div id="d20-result" class="result-display">20</div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Perlin Noise</h3>
+                <p class="inspiration-desc">
+                    Unlike pure randomness, Perlin Noise creates natural-looking, organic patterns. It's my go-to tool for generating procedural textures, creating varied terrain for levels, or even implementing realistic camera shake. By changing the <code>seed</code>, you get a completely different yet structurally similar result.
+                </p>
+                <div class="interactive-demo">
+                    <canvas id="perlin-canvas"></canvas>
+                    <div>
+                        <input type="text" id="perlin-seed" value="hello world">
+                        <button id="generate-perlin" class="button-link">Generate</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="procedural-algorithms.js"></script>
+</body>
+</html>

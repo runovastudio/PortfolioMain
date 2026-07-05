@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adwq | Onur Çulhaoğlu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="adwq-theme">
+    <header class="page-header">
+        <div class="container">
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+        </div>
+    </header>
+    <main class="container">
+        <section class="gallery-section">
+            <h2 class="section-title title-monospace">adwq</h2>
+            <article class="project-article">
+                <p>"adwq" is an acronym formed from four random, adjacent letters; it doesn't represent anything. The primary inspiration for this project was the FPS game `.kkrieger` by .theprodukkt. However, my goal wasn't just to create a small-footprint FPS. I also began researching how lightweight systems like this could be used for game optimization. This project marks my first real engagement with procedural systems. Turning potentially infinite sequences of numbers into meaningful, coherent wholes has been one of the most enjoyable tasks I've undertaken to date.</p>
+
+                <img src="games/adwq/1.gif" alt="Gameplay GIF from adwq showing procedural room generation and combat.">
+
+                <p class="image-caption">A gameplay moment showing how procedural room generation and combat mechanics come together.</p>
+
+                <h4>What did I use?</h4>
+                <p>This game can be described as a from-scratch OpenGL project, primarily utilizing the GLFW, GLM, and GLAD libraries. Developed without any game engine or design tools, shapes were constructed using vector data, and rooms were generated using RNG systems.</p>
+
+                <h4>What was my approach?</h4>
+                <p>To generate rooms, I first defined a target room count. I treated each room as a node, checking the periphery of the previous node to place the next one to the north, south, east, or west, thereby forming a corridor. Once these checks were complete and the desired number of rooms was reached, I populated them with pre-defined enemies.</p>
+
+                <img src="games/adwq/2.webp" alt="A visualization of the node-based room generation logic.">
+
+                <p class="image-caption">A rough visual representation of the algorithm.</p>
+
+                <h4>What challenges did I face?</h4>
+                <p>Since I wasn't using a game engine, even calculating the normal vectors for every generated object was a significant problem. Integrating the node-and-check system for rooms and the subsequent corridor formation was another challenge. The lack of vital features provided by modern game engines—such as text rendering, menu creation, camera movement, and collider systems—were some of the factors that made this project particularly difficult. Nevertheless, in the end, I succeeded in creating a product that I managed to shrink down to just 181KB in a zip package.</p>
+
+                <div class="final-verdict">
+                    <h4>Final Verdict</h4>
+                    <p>I was so captivated by the magical nature of procedural structures that I might have done this project an injustice by overlooking how much could be learned even from such a small-scale endeavor. Therefore, even as I write this, I am reminded again and again of how much I learned. I can say it was one of the most educational, enjoyable, and challenging projects I've worked on.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://runova-studio.itch.io/adwq" target="_blank" rel="noopener noreferrer" class="button-link">Play 'adwq' on itch.io</a>
+                </div>
+
+            </article>
+        </section>
+    </main>
+</body>
+</html>

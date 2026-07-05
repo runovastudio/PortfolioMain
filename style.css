@@ -1,0 +1,798 @@
+/* Temel Sıfırlamalar ve Renk Paleti */
+:root {
+    --bg-color: #2c2520;        /* Koyu toprak/kahve tonu */
+    --text-color: #fcf8f2;      /* Sıcak parşömen kağıdı rengi */
+    --accent-color: #e06c75;    /* Canlı kırmızı */
+    --secondary-color: #98c379; /* Canlı yeşil */
+    --card-bg: #3a312c;         /* Arka plandan biraz daha açık koyu ton */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Üst Kısım Tasarımı */
+.hero-section {
+    padding: 5rem 0 3rem 0;
+    border-bottom: 1px dashed var(--secondary-color); /* Kilim dikişi gibi hafif kesikli çizgi */
+}
+
+.site-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    margin: 0;
+    color: var(--text-color);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+.manifesto {
+    margin-top: 3rem;
+    max-width: 700px;
+}
+
+.manifesto em {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Visual Synthesis Section */
+.visual-synthesis-section {
+    padding: 4rem 0;
+    background-color: #25201b; /* Slightly different bg to stand out */
+    border-bottom: 1px dashed var(--secondary-color);
+}
+
+.visuals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.visual-item {
+    text-align: center;
+}
+
+.visual-item h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin: 0 0 1rem 0;
+}
+
+.visual-item canvas {
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(74, 107, 108, 0.15);
+    background-color: var(--card-bg);
+    border-radius: 4px;
+}
+
+.visual-item p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 1rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Galeri Alanı */
+.inspo-section,
+.works-section {
+    padding: 3rem 0;
+}
+
+.works-section {
+    border-top: 1px dashed var(--secondary-color);
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    text-align: center;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.category-card {
+    display: block;
+    background: var(--card-bg);
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    aspect-ratio: 4 / 3; /* Recommended aspect ratio */
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.category-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-card::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 1rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent);
+    color: white;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: translateY(20%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+.category-card:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text-based cards for Inspirations section */
+.category-card--text {
+    padding: 2rem;
+    aspect-ratio: auto;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.category-card--text:hover img { transform: none; }
+.category-card--text::after { display: none; }
+
+.category-card--text h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin: 0 0 0.75rem 0;
+}
+
+.category-card--text p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.inspiration-desc {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+.couplet {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    text-align: center;
+    margin: 1.5rem auto;
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-left: 3px solid var(--accent-color);
+    color: var(--text-color);
+}
+
+.couplet p { margin: 0; line-height: 1.4; }
+
+.aruz-pattern { display: block; font-family: monospace; font-size: 1.1rem; text-align: center; color: var(--secondary-color); margin: 1.5rem 0; letter-spacing: 2px; }
+
+.translation { font-size: 0.9rem; font-style: italic; text-align: center; opacity: 0.7; margin-top: 1rem; }
+
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    .visuals-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+}
+
+.modal-section { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px dashed rgba(74, 107, 108, 0.3); }
+.modal-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+/* =============================================== */
+/* STYLES FOR SUB-PAGES (CARDS, 3D MODELS)         */
+/* =============================================== */
+
+.page-header {
+    padding: 2rem 0;
+    border-bottom: 1px dashed var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.back-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--accent-color);
+}
+
+.gallery-section {
+    padding: 1rem 0 4rem 0;
+}
+
+.gallery-section .section-title {
+    text-align: left;
+    font-size: 2.5rem;
+}
+
+.section-desc {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-top: -1rem;
+    margin-bottom: 4rem;
+}
+
+/* Card Deck Animation (for cards.html) */
+.asset-grid {
+    position: relative; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    margin-top: 2rem;
+}
+
+.asset-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(74, 107, 108, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(44, 37, 32, 0.04);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+    width: 280px;
+    position: absolute;
+    transform-origin: bottom center;
+    animation: var(--fan-animation-name) forwards linear;
+    animation-timeline: view(block); /* Animasyonun kaydırmaya bağlı olmasını sağlar */
+    animation-range: entry 30% entry 70%; /* Animasyon başlangıç ve bitiş aralığı (daha merkezi) */
+}
+
+@keyframes fan-out-far-left   { to { transform: rotate(-18deg) translateX(-200px); } }
+@keyframes fan-out-mid-left   { to { transform: rotate(-12deg) translateX(-130px); } }
+@keyframes fan-out-near-left  { to { transform: rotate(-6deg) translateX(-65px); } }
+@keyframes fan-out-center { to { transform: translateY(-30px); } }
+@keyframes fan-out-near-right { to { transform: rotate(6deg) translateX(65px); } }
+@keyframes fan-out-mid-right  { to { transform: rotate(12deg) translateX(130px); } }
+@keyframes fan-out-far-right  { to { transform: rotate(18deg) translateX(200px); } }
+
+@keyframes fan-out-left { to { transform: rotate(-15deg) translateX(-120px); } }
+@keyframes fan-out-right { to { transform: rotate(15deg) translateX(120px); } }
+
+.asset-card:nth-child(1) { --fan-animation-name: fan-out-far-left; }
+.asset-card:nth-child(2) { --fan-animation-name: fan-out-mid-left; }
+.asset-card:nth-child(3) { --fan-animation-name: fan-out-near-left; }
+.asset-card:nth-child(4) { --fan-animation-name: fan-out-center; z-index: 2; }
+.asset-card:nth-child(5) { --fan-animation-name: fan-out-near-right; }
+.asset-card:nth-child(6) { --fan-animation-name: fan-out-mid-right; }
+.asset-card:nth-child(7) { --fan-animation-name: fan-out-far-right; }
+
+.asset-grid:has(.asset-card:first-child:nth-last-child(3)) .asset-card:nth-child(1) { --fan-animation-name: fan-out-left; }
+.asset-grid:has(.asset-card:first-child:nth-last-child(3)) .asset-card:nth-child(2) { --fan-animation-name: fan-out-center; z-index: 2; }
+.asset-grid:has(.asset-card:first-child:nth-last-child(3)) .asset-card:nth-child(3) { --fan-animation-name: fan-out-right; }
+
+.deck-sub-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    border-bottom: 1px solid rgba(74, 107, 108, 0.1);
+    padding-bottom: 0.5rem;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.asset-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(44, 37, 32, 0.1);
+    z-index: 10;
+}
+
+.asset-image-wrapper { display: block; line-height: 0; }
+.asset-image-wrapper img { width: 100%; height: auto; display: block; }
+
+/* 3D Models Container (for 3d-models.html) */
+.models-container { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+
+.sketchfab-embed-wrapper {
+    margin-bottom: 0;
+    border: 1px solid rgba(74, 107, 108, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0, 0.2);
+    background: #25201b;
+}
+
+.sketchfab-embed-wrapper iframe { display: block; width: 100%; height: 480px; border: 0; }
+.sketchfab-embed-wrapper p { background: var(--card-bg); padding: 0.75rem; margin: 0 !important; font-size: 0.8rem !important; text-align: center; line-height: 1.4; }
+.sketchfab-embed-wrapper p a { color: var(--secondary-color) !important; }
+
+/* Demo Showcase (for demos.html) */
+.demo-showcase {
+    background: var(--card-bg);
+    border: 1px solid rgba(74, 107, 108, 0.15);
+    border-radius: 4px;
+    margin-top: -2rem;
+    box-shadow: 0 4px 20px rgba(44, 37, 32, 0.04);
+    overflow: hidden; /* To keep border-radius on children */
+}
+
+.demo-showcase .deck-sub-title {
+    margin-top: 0;
+    padding: 1.5rem 2rem 0 2rem;
+    border-bottom: none;
+}
+
+.demo-media {
+    padding: 1rem 2rem 0 2rem;
+}
+
+.demo-media img {
+    width: 100%;
+    display: block;
+}
+
+.demo-info {
+    padding: 1.5rem 2rem 2rem 2rem;
+}
+
+.demo-info h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: 0 0 1rem 0;
+}
+
+.demo-info p { margin: 0 0 2rem 0; opacity: 0.9; }
+
+.button-link { display: inline-block; background-color: var(--secondary-color); color: var(--bg-color); padding: 0.8rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease, transform 0.3s ease; }
+.button-link:hover { background-color: var(--accent-color); transform: translateY(-2px); }
+
+/* =============================================== */
+/* RETRO THEME (for retro-inspirations.html)       */
+/* =============================================== */
+
+.retro-theme {
+    --bg-color: #3a3a3a; /* Daha yumuşak bir antrasit */
+    --text-color: #f0f0f0;
+    --accent-color: #ff4136;    /* NES Red */
+    --secondary-color: #00bfff; /* NES Blue */
+    --highlight-color: #ffff00; /* NES Yellow */
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px; /* Pixel fonts are best at specific sizes */
+    line-height: 1.8;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    image-rendering: pixelated;
+}
+
+.retro-theme .page-header { border-bottom-color: var(--accent-color); }
+.retro-theme .back-link { color: var(--secondary-color); font-size: 1em; }
+.retro-theme .back-link:hover { color: var(--highlight-color); }
+
+.retro-theme .section-title {
+    font-size: 2em;
+    color: var(--accent-color);
+    text-shadow: 3px 3px 0 var(--secondary-color);
+    letter-spacing: 2px;
+    margin-bottom: 3rem;
+}
+
+.retro-theme .modal-section { border-color: rgba(255, 255, 255, 0.2); }
+.retro-theme .modal-section h3 { font-family: 'Press Start 2P', cursive; color: var(--highlight-color); font-size: 1.2em; }
+.retro-theme .inspiration-desc { font-size: 1em; opacity: 0.9; }
+
+.game-showcase {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    background-color: #4a4a4a; /* Daha açık bir gri */
+    padding: 2rem;
+    border: 2px solid var(--secondary-color);
+    margin-bottom: 3rem;
+}
+
+.game-media { flex: 1; }
+.game-media img { width: 100%; display: block; border: 2px solid var(--text-color); }
+
+.game-info { flex: 2; }
+.game-info h3 { font-family: 'Press Start 2P', cursive; color: var(--accent-color); font-size: 1.5em; margin: 0 0 1rem 0; }
+.game-info p { margin: 0; opacity: 0.9; }
+
+@media (max-width: 768px) {
+    .game-showcase {
+        flex-direction: column;
+    }
+    .retro-theme .section-title { font-size: 1.5em; }
+    .game-info h3 { font-size: 1.2em; }
+}
+
+/* =============================================== */
+/* TERMINAL THEME (for procedural-inspirations.html) */
+/* =============================================== */
+
+.terminal-theme {
+    --bg-color: #282c34;        /* Antrasit */
+    --text-color: #c5c8c6;      /* Açık gri */
+    --accent-color: #8cda8c;    /* Terminal yeşili */
+    --secondary-color: #f0c674; /* Terminal sarısı/amber */
+    --highlight-color: #61afef; /* Terminal mavisi */
+
+    font-family: 'Source Code Pro', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.terminal-theme .page-header { border-bottom-color: var(--accent-color); }
+.terminal-theme .back-link { color: var(--secondary-color); }
+.terminal-theme .back-link:hover { color: var(--highlight-color); }
+
+.terminal-theme .section-title {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-align: left;
+    font-size: 2.2rem;
+}
+
+.terminal-theme .section-title::after {
+    content: '▋';
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+    color: var(--accent-color);
+    margin-left: 0.5rem;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.terminal-theme .modal-section h3 {
+    font-family: 'Source Code Pro', monospace;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+.interactive-demo {
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.interactive-demo .button-link { font-family: 'Source Code Pro', monospace; }
+.interactive-demo input[type="text"] { background: #333; border: 1px solid #555; color: var(--text-color); padding: 0.8rem; font-family: 'Source Code Pro', monospace; border-radius: 4px; }
+.interactive-demo .result-display { font-size: 2rem; font-weight: 700; color: var(--highlight-color); }
+.interactive-demo canvas { width: 256px; height: 256px; image-rendering: pixelated; border: 1px solid #555; }
+
+.terminal-theme .inspiration-desc code {
+    background-color: rgba(0,0,0,0.3);
+    color: var(--accent-color);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+}
+
+/* =============================================== */
+/* PROJECT DETAIL PAGE (for patina.html etc.)      */
+/* =============================================== */
+
+.project-article {
+    max-width: 750px; /* Good reading width */
+    margin: 0 auto;
+}
+
+.project-article p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.project-article img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto 0.5rem auto;
+    border-radius: 4px;
+    border: 1px solid rgba(74, 107, 108, 0.15);
+    box-shadow: 0 4px 20px rgba(44, 37, 32, 0.04);
+}
+
+.project-article .image-caption {
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.project-article .final-verdict {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: rgba(0,0,0,0.1);
+    border-left: 4px solid var(--accent-color);
+}
+
+.project-article h4 {
+    margin: 3rem 0 1rem 0;
+    font-family: 'Cinzel', serif;
+    color: var(--accent-color);
+    font-size: 1.4rem;
+}
+
+.project-article .final-verdict h4 {
+    margin-top: 0;
+}
+
+.project-article h5 {
+    margin: 2.5rem 0 1rem 0;
+    font-family: 'Cinzel', serif;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.asset-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.asset-grid-container img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 4px;
+    border: 1px solid rgba(74, 107, 108, 0.15);
+    box-shadow: 0 4px 20px rgba(44, 37, 32, 0.04);
+}
+
+.category-card h3.title-monospace,
+.gallery-section .section-title.title-monospace {
+    font-family: 'Source Code Pro', monospace;
+    letter-spacing: normal;
+    text-transform: none;
+    font-weight: 400;
+}
+
+/* =============================================== */
+/* PATINA THEME                                    */
+/* =============================================== */
+.patina-theme {
+    --bg-color: #3a3a3a;
+    --text-color: #dcdcdc;
+    --accent-color: #8c8c8c;
+    --secondary-color: #6a6a6a;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.patina-theme .page-header { border-bottom-color: var(--secondary-color); }
+.patina-theme .back-link { color: var(--secondary-color); }
+.patina-theme .back-link:hover { color: var(--accent-color); }
+.patina-theme .section-title { color: var(--text-color); }
+.patina-theme .project-article h4 { color: var(--accent-color); }
+.patina-theme .project-article img { border-color: rgba(255,255,255,0.1); }
+.patina-theme .final-verdict { background-color: rgba(0,0,0,0.2); border-left-color: var(--accent-color); }
+
+/* =============================================== */
+/* HE LIVED THEME                                  */
+/* =============================================== */
+.he-lived-theme {
+    --bg-color: #2c3e50;
+    --text-color: #ecf0f1;
+    --accent-color: #3498db;
+    --secondary-color: #95a5a6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.he-lived-theme .page-header { border-bottom-color: var(--secondary-color); }
+.he-lived-theme .back-link { color: var(--secondary-color); }
+.he-lived-theme .back-link:hover { color: var(--accent-color); }
+.he-lived-theme .section-title { color: var(--text-color); }
+.he-lived-theme .project-article h4 { color: var(--accent-color); }
+.he-lived-theme .project-article img { border-color: rgba(255,255,255,0.1); }
+.he-lived-theme .final-verdict { background-color: rgba(0,0,0,0.2); border-left-color: var(--accent-color); }
+.he-lived-theme .button-link { background-color: var(--accent-color); color: var(--bg-color); }
+.he-lived-theme .button-link:hover { background-color: var(--secondary-color); }
+
+/* =============================================== */
+/* ADWQ THEME                                      */
+/* =============================================== */
+.adwq-theme {
+    --bg-color: #3c3c4c;        /* PS1 Dark Purple-Gray */
+    --text-color: #dcdbe0;      /* PS1 Light Gray */
+    --accent-color: #a08fba;    /* PS1 Muted Magenta */
+    --secondary-color: #74a09c; /* PS1 Desaturated Teal */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.adwq-theme .page-header { border-bottom-color: var(--secondary-color); }
+.adwq-theme .back-link { color: var(--secondary-color); opacity: 0.8; }
+.adwq-theme .back-link:hover { color: var(--accent-color); }
+.adwq-theme .section-title { color: var(--text-color); }
+.adwq-theme .project-article h4 { color: var(--accent-color); }
+.adwq-theme .project-article img { border-color: rgba(0,0,0,0.2); }
+.adwq-theme .project-article img[src="games/adwq/2.webp"] {
+    mix-blend-mode: multiply; /* Makes white background transparent */
+    background-color: transparent;
+}
+.adwq-theme .final-verdict { background-color: rgba(0,0,0,0.15); border-left-color: var(--accent-color); }
+.adwq-theme .button-link { background-color: var(--secondary-color); color: var(--bg-color); }
+.adwq-theme .button-link:hover { background-color: var(--accent-color); }
+
+
+/* =============================================== */
+/* SAILING THEME (for oh-noah.html)                */
+/* =============================================== */
+
+.sailing-theme {
+    --bg-color: #436B95;        /* Ultramarine Blue */
+    --text-color: #f0eada;      /* Parchment/Light Beige */
+    --accent-color: #E8C77B;    /* Sandy Gold */
+    --secondary-color: #D2B48C; /* Tan / Wood color */
+    --highlight-color: #FFFFFF;
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.sailing-theme .page-header { border-bottom-color: rgba(255, 255, 255, 0.2); }
+.sailing-theme .back-link { color: var(--accent-color); }
+.sailing-theme .back-link:hover { color: var(--highlight-color); }
+
+.sailing-theme .section-title {
+    /* The user requested 'Alkhemikal'. It is prioritized here. */
+    /* 'MedievalSharp' is used as a web-safe fallback from Google Fonts. */
+    font-family: 'Alkhemikal', 'MedievalSharp', cursive;
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    text-align: left;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.sailing-theme .project-article p { opacity: 0.95; }
+.sailing-theme .project-article h4 { color: var(--accent-color); border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 0.5rem; }
+.sailing-theme .project-article img { border-color: rgba(0,0,0,0.2); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); }
+.sailing-theme .image-caption { color: var(--accent-color); opacity: 0.9; }
+
+.sailing-theme .deck-sub-title {
+    color: var(--accent-color);
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.sailing-theme .asset-card {
+    transform-origin: center center;
+    animation: deal-card forwards linear;
+    animation-timeline: view(block);
+    animation-range: entry 10% entry 60%;
+    background-color: transparent;
+    border: none;
+}
+.sailing-theme .asset-card {
+    background-color: transparent;
+    border: none;
+}
+.sailing-theme .asset-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px) scale(1.05) rotate(var(--r)) !important;
+    z-index: 10;
+}
+
+@keyframes deal-card {
+    from { opacity: 0; transform: translateX(80vw) translateY(-20vh) rotate(45deg) scale(0.8); }
+    to { opacity: 1; transform: translateX(var(--tx, 0)) translateY(var(--ty, 0)) rotate(var(--r, 0deg)); }
+}
+
+.sailing-theme .asset-card:nth-child(1) { --tx: -150px; --ty: 20px; --r: -15deg; }
+.sailing-theme .asset-card:nth-child(2) { --tx: 50px; --ty: -30px; --r: 10deg; }
+.sailing-theme .asset-card:nth-child(3) { --tx: -50px; --ty: 50px; --r: -5deg; }
+.sailing-theme .asset-card:nth-child(4) { --tx: 0px; --ty: 0px; --r: 2deg; z-index: 2; }
+.sailing-theme .asset-card:nth-child(5) { --tx: 150px; --ty: 40px; --r: 18deg; }
+.sailing-theme .asset-card:nth-child(6) { --tx: -120px; --ty: -60px; --r: -20deg; }
+.sailing-theme .asset-card:nth-child(7) { --tx: 100px; --ty: 80px; --r: 5deg; }
+
+.sailing-theme .asset-grid:has(.asset-card:first-child:nth-last-child(3)) .asset-card:nth-child(1) { --tx: -150px; --ty: 0px; --r: -15deg; }
+.sailing-theme .asset-grid:has(.asset-card:first-child:nth-last-child(3)) .asset-card:nth-child(2) { --tx: 0px; --ty: -20px; --r: 2deg; z-index: 2; }
+.sailing-theme .asset-grid:has(.asset-card:first-child:nth-last-child(3)) .asset-card:nth-child(3) { --tx: 150px; --ty: 0px; --r: 15deg; }
+
+.sailing-theme .final-verdict {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-left-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.sailing-theme::before,
+.sailing-theme::after {
+    content: '';
+    position: absolute;
+    background-image: url('games/ohnoah/0.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.sailing-theme::before {
+    top: 15%;
+    left: 5%;
+    transform: rotate(-20deg);
+}
+
+.sailing-theme::after {
+    bottom: 15%;
+    right: 5%;
+    transform: rotate(15deg) scaleX(-1);
+}

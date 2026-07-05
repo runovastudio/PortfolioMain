@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onur Çulhaoğlu | Game Dev & Digital Artist</title>
+    <!-- Warm and literary typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="site-title">Onur Çulhaoğlu</h1>
+            <p class="subtitle">Indie Game Developer & Digital Artist</p>
+            
+            <div class="manifesto">
+                <p>
+                    <em>"I am deeply fascinated by procedural systems. To me, the mathematical iteration of a code block shares the exact same geometric soul as the repeating motifs woven into a traditional Anatolian rug."</em>
+                </p>
+                <p class="bio-text">
+                    My work is an eclectic synthesis of Eastern patterns and textures with Western game mechanics and 3D spaces. Bridging the gap between fine art reproductions, pixel-perfect technical execution, and interactive design.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery / Works Section -->
+    <main class="container">
+    
+        <!-- Visual Synthesis Section -->
+        <section class="visual-synthesis-section">
+            <div class="container">
+                <h2 class="section-title">Visual Synthesis</h2>
+                <div class="visuals-grid">
+                    <div class="visual-item">
+                        <h3>The Modern System</h3>
+                        <canvas id="seismograph-canvas" width="500" height="250"></canvas>
+                        <p>A data stream, representing the unpredictable flow of the digital world.</p>
+                    </div>
+                    <div class="visual-item">
+                        <h3>The Traditional System</h3>
+                        <canvas id="rug-canvas" width="500" height="250"></canvas>
+                        <p>Symbols born from the data stream, forged into a flowing chain of motifs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Games Section (formerly inspo-section) -->
+        <section class="inspo-section">
+            <h2 class="section-title">My Games</h2>
+            <div class="category-grid">
+                <a href="patina.html" class="category-card" data-title="//patina">
+                    <img src="games/thumbnails/patina.webp" alt="Thumbnail for //patina">
+                </a>
+                <a href="he-lived.html" class="category-card" data-title="HE LIVED">
+                    <img src="games/thumbnails/he-lived.webp" alt="Thumbnail for HE LIVED">
+                </a>
+                <a href="adwq.html" class="category-card" data-title="adwq">
+                    <img src="games/thumbnails/adwq.webp" alt="Thumbnail for adwq">
+                </a>
+                <a href="oh-noah.html" class="category-card" data-title="Oh Noah!">
+                    <img src="games/thumbnails/oh-noah.webp" alt="Thumbnail for Oh Noah!">
+                </a>
+                <a href="#" class="category-card" data-title="Placeholder">
+                    <img src="games/thumbnails/placeholder.webp" alt="Thumbnail for a placeholder project">
+                </a>
+                <a href="#" class="category-card" data-title="Placeholder">
+                    <img src="games/thumbnails/placeholder.webp" alt="Thumbnail for a placeholder project">
+                </a>
+            </div>
+        </section>
+
+        <!-- Inspirations Section (formerly works-section) -->
+        <section class="works-section">
+            <h2 class="section-title">Inspirations</h2>
+            <div class="category-grid">
+                <a href="16th-century.html" class="category-card category-card--text">
+                    <h3>Roots / 16th Century</h3>
+                    <p>Exploring the analytical aesthetics of Divan poetry and Flemish painting.</p>
+                </a>
+                <a href="retro-inspirations.html" class="category-card category-card--text">
+                    <h3>Retro Inspirations</h3>
+                    <p>Homage to the tight core loops and design of NES-era classics.</p>
+                </a>
+                <a href="procedural-inspirations.html" class="category-card category-card--text">
+                    <h3>Procedural Algorithms</h3>
+                    <p>A look into the code-based engines of creation like RNG and Perlin Noise.</p>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="procedural-visuals.js"></script>
+
+    <footer class="hero-section" style="border-top: 1px dashed var(--secondary-color); border-bottom: none; padding-top: 3rem; margin-top: 2rem;">
+        <div class="container">
+            <h2 class="section-title">Personal Information</h2>
+            <!-- Contact info will be added here later -->
+        </div>
+    </footer>
+
+</body>
+</html>
