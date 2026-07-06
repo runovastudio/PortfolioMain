@@ -65,6 +65,11 @@ body {
     opacity: 0.9;
 }
 
+.about-section {
+    padding: 3rem 0;
+    border-bottom: 1px dashed var(--secondary-color);
+}
+
 /* Visual Synthesis Section */
 .visual-synthesis-section {
     padding: 4rem 0;
@@ -123,6 +128,15 @@ body {
     margin-bottom: 2rem;
     position: relative;
     text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: -1.5rem auto 2.5rem auto;
+    opacity: 0.8;
+    font-style: italic;
 }
 
 .category-grid {
