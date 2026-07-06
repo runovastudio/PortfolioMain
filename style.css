@@ -245,11 +245,25 @@ body {
 
 .translation { font-size: 0.9rem; font-style: italic; text-align: center; opacity: 0.7; margin-top: 1rem; }
 
+.painter-name {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-style: normal;
+}
+
 
 /* Responsive Design for smaller screens */
 @media (max-width: 768px) {
     .category-grid {
         grid-template-columns: 1fr;
+    }
+    .sailing-theme .asset-grid {
+        /* On mobile, show fewer columns to make cards smaller but readable */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    .sailing-theme .asset-card:hover {
+        /* Disable hover transform on mobile for better usability */
+        transform: none;
     }
     .visuals-grid {
         grid-template-columns: 1fr;
@@ -299,6 +313,58 @@ body {
     margin-bottom: 4rem;
 }
 
+/* Project Info Dropdown */
+.project-info-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: -1.5rem;
+    margin-bottom: 3rem;
+}
+
+.dropdown-toggle {
+    background-color: transparent;
+    color: var(--secondary-color);
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-toggle:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+}
+
+.dropdown-toggle::after {
+    content: ' ▼';
+    font-size: 0.7em;
+    margin-left: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--card-bg);
+    min-width: 350px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+    z-index: 100;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--secondary-color);
+    margin-top: 0.5rem;
+}
+
+.dropdown-content.show { display: block; }
+
+.project-info-list { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+.project-info-list li { padding: 0.5rem 0; display: flex; border-bottom: 1px solid rgba(128, 128, 128, 0.1); }
+.project-info-list li:last-child { border-bottom: none; }
+.project-info-list li strong { color: var(--secondary-color); width: 110px; flex-shrink: 0; }
+
+
 /* Card Deck Animation (for cards.html) */
 .asset-grid {
     position: relative; 
@@ -307,6 +373,14 @@ body {
     align-items: center;
     min-height: 500px;
     margin-top: 2rem;
+}
+.sailing-theme .asset-grid {
+    display: grid;
+    /* Create a responsive grid that fits as many cards as possible */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    min-height: auto;
+    align-items: start;
 }
 
 .asset-card {
@@ -317,7 +391,7 @@ body {
     box-shadow: 0 4px 20px rgba(44, 37, 32, 0.04);
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
     width: 280px;
-    position: absolute;
+    position: relative; /* Changed from absolute */
     transform-origin: bottom center;
     animation: var(--fan-animation-name) forwards linear;
     animation-timeline: view(block); /* Animasyonun kaydırmaya bağlı olmasını sağlar */
@@ -745,39 +819,20 @@ body {
 }
 
 .sailing-theme .asset-card {
-    transform-origin: center center;
-    animation: deal-card forwards linear;
-    animation-timeline: view(block);
-    animation-range: entry 10% entry 60%;
+    /* Override base styles for a static grid layout */
+    position: relative;
+    width: 100%;
+    animation: none; /* Remove dealing animation */
     background-color: transparent;
     border: none;
-}
-.sailing-theme .asset-card {
-    background-color: transparent;
-    border: none;
+    transition: transform 0.3s ease; /* Add a simple hover transition */
 }
 .sailing-theme .asset-card:hover {
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-    transform: translateY(-10px) scale(1.05) rotate(var(--r)) !important;
+    /* A simpler hover effect for the static grid */
+    transform: translateY(-8px) scale(1.05);
     z-index: 10;
 }
-
-@keyframes deal-card {
-    from { opacity: 0; transform: translateX(80vw) translateY(-20vh) rotate(45deg) scale(0.8); }
-    to { opacity: 1; transform: translateX(var(--tx, 0)) translateY(var(--ty, 0)) rotate(var(--r, 0deg)); }
-}
-
-.sailing-theme .asset-card:nth-child(1) { --tx: -150px; --ty: 20px; --r: -15deg; }
-.sailing-theme .asset-card:nth-child(2) { --tx: 50px; --ty: -30px; --r: 10deg; }
-.sailing-theme .asset-card:nth-child(3) { --tx: -50px; --ty: 50px; --r: -5deg; }
-.sailing-theme .asset-card:nth-child(4) { --tx: 0px; --ty: 0px; --r: 2deg; z-index: 2; }
-.sailing-theme .asset-card:nth-child(5) { --tx: 150px; --ty: 40px; --r: 18deg; }
-.sailing-theme .asset-card:nth-child(6) { --tx: -120px; --ty: -60px; --r: -20deg; }
-.sailing-theme .asset-card:nth-child(7) { --tx: 100px; --ty: 80px; --r: 5deg; }
-
-.sailing-theme .asset-grid:has(.asset-card:first-child:nth-last-child(3)) .asset-card:nth-child(1) { --tx: -150px; --ty: 0px; --r: -15deg; }
-.sailing-theme .asset-grid:has(.asset-card:first-child:nth-last-child(3)) .asset-card:nth-child(2) { --tx: 0px; --ty: -20px; --r: 2deg; z-index: 2; }
-.sailing-theme .asset-grid:has(.asset-card:first-child:nth-last-child(3)) .asset-card:nth-child(3) { --tx: 150px; --ty: 0px; --r: 15deg; }
 
 .sailing-theme .final-verdict {
     background-color: rgba(0, 0, 0, 0.15);
@@ -785,28 +840,37 @@ body {
     color: var(--text-color);
 }
 
-.sailing-theme::before,
-.sailing-theme::after {
-    content: '';
+/* Decorative background elements for the sailing theme */
+.sailing-bg-elements {
     position: absolute;
-    background-image: url('games/ohnoah/0.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 200px;
-    height: 200px;
-    opacity: 0.4;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: -1;
+    overflow: hidden;
     pointer-events: none;
 }
 
-.sailing-theme::before {
-    top: 15%;
+.sailing-bg-elements img {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    opacity: 0.15;
+}
+
+.sailing-bg-elements img:nth-of-type(odd) {
     left: 5%;
     transform: rotate(-20deg);
 }
 
-.sailing-theme::after {
-    bottom: 15%;
+.sailing-bg-elements img:nth-of-type(even) {
     right: 5%;
     transform: rotate(15deg) scaleX(-1);
 }
+
+.sailing-bg-elements img:nth-child(1) { top: 20vh; }
+.sailing-bg-elements img:nth-child(2) { top: 70vh; }
+.sailing-bg-elements img:nth-child(3) { top: 120vh; }
+.sailing-bg-elements img:nth-child(4) { top: 170vh; }
+.sailing-bg-elements img:nth-child(5) { top: 220vh; }
